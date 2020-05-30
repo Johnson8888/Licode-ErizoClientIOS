@@ -22,6 +22,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		698AC66B2A494B39BD637C3F /* Pods_ErizoClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3077201114BF0658A5460831 /* Pods_ErizoClientTests.framework */; };
 		78353EDD1ECE4D4E00EAD85E /* ECSignalingEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 78353EDC1ECE4D4E00EAD85E /* ECSignalingEvent.m */; };
 		783A84321EF96E2100092DBC /* ECClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 783A84311EF96E2100092DBC /* ECClientTest.m */; };
 		785C801B1B9DE13300DD721F /* ECPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 785C80191B9DE13300DD721F /* ECPlayerView.m */; };
@@ -37,7 +38,6 @@
 		78B75F571ED6058600249EE9 /* ECRoomTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B75F561ED6058600249EE9 /* ECRoomTest.m */; };
 		78B75F591ED605C400249EE9 /* ECUnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B75F581ED605C400249EE9 /* ECUnitTest.m */; };
 		78D5936C1B7C17FF00EDF432 /* ECClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D593531B7C17FF00EDF432 /* ECClient.m */; };
-		78D5936E1B7C17FF00EDF432 /* ECSignalingChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D593581B7C17FF00EDF432 /* ECSignalingChannel.m */; };
 		78D5936F1B7C17FF00EDF432 /* ECSignalingMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D5935A1B7C17FF00EDF432 /* ECSignalingMessage.m */; };
 		78D593711B7C17FF00EDF432 /* RTCIceCandidate+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D5935F1B7C17FF00EDF432 /* RTCIceCandidate+JSON.m */; };
 		78D593721B7C17FF00EDF432 /* RTCIceServer+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D593611B7C17FF00EDF432 /* RTCIceServer+JSON.m */; };
@@ -45,6 +45,23 @@
 		78D593741B7C17FF00EDF432 /* SDPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D593651B7C17FF00EDF432 /* SDPUtils.m */; };
 		78D593761B7C17FF00EDF432 /* ECStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D593691B7C17FF00EDF432 /* ECStream.m */; };
 		78D593771B7C17FF00EDF432 /* ECRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D5936A1B7C17FF00EDF432 /* ECRoom.m */; };
+		F373AB7F2463F8D90089E89E /* ECSignalingChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = F373AB7E2463F8D90089E89E /* ECSignalingChannel.m */; };
+		F373ABCF24642EB70089E89E /* SocketEngineWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABAD24642EB30089E89E /* SocketEngineWebsocket.m */; };
+		F373ABD024642EB70089E89E /* SocketIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABB124642EB40089E89E /* SocketIOClient.m */; };
+		F373ABD124642EB70089E89E /* SocketParsable.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABB424642EB40089E89E /* SocketParsable.m */; };
+		F373ABD224642EB70089E89E /* SocketEngineSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABB624642EB40089E89E /* SocketEngineSpec.m */; };
+		F373ABD324642EB70089E89E /* SocketEnginePollable.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABB724642EB40089E89E /* SocketEnginePollable.m */; };
+		F373ABD424642EB70089E89E /* SocketAckEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABB824642EB40089E89E /* SocketAckEmitter.m */; };
+		F373ABD524642EB70089E89E /* SSLSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABBC24642EB50089E89E /* SSLSecurity.m */; };
+		F373ABD624642EB70089E89E /* SocketAnyEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABBD24642EB50089E89E /* SocketAnyEvent.m */; };
+		F373ABD724642EB70089E89E /* SocketPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABC024642EB50089E89E /* SocketPacket.m */; };
+		F373ABD824642EB70089E89E /* SocketAckManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABC124642EB60089E89E /* SocketAckManager.m */; };
+		F373ABD924642EB70089E89E /* SocketStringReader.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABC324642EB60089E89E /* SocketStringReader.m */; };
+		F373ABDA24642EB70089E89E /* SocketIOClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABC624642EB60089E89E /* SocketIOClientSpec.m */; };
+		F373ABDB24642EB70089E89E /* SocketEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABC824642EB70089E89E /* SocketEventHandler.m */; };
+		F373ABDC24642EB70089E89E /* SocketEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABCB24642EB70089E89E /* SocketEngine.m */; };
+		F373ABDD24642EB70089E89E /* SocketTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABCC24642EB70089E89E /* SocketTypes.m */; };
+		F373ABDE24642EB70089E89E /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F373ABCD24642EB70089E89E /* WebSocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +87,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1324870B030D30169B9905A7 /* Pods-ErizoClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErizoClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ErizoClientTests/Pods-ErizoClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		22398A0C2661768BB9503CA5 /* Pods-ErizoClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErizoClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ErizoClientTests/Pods-ErizoClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		3077201114BF0658A5460831 /* Pods_ErizoClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ErizoClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		780428BF1F279B0F0054E488 /* ECLicodeProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECLicodeProtocol.h; sourceTree = "<group>"; };
 		7814A0F51B83F6E600C18A9E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -103,7 +122,6 @@
 		78D593521B7C17FF00EDF432 /* ECClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECClient.h; sourceTree = "<group>"; };
 		78D593531B7C17FF00EDF432 /* ECClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECClient.m; sourceTree = "<group>"; };
 		78D593571B7C17FF00EDF432 /* ECSignalingChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSignalingChannel.h; sourceTree = "<group>"; };
-		78D593581B7C17FF00EDF432 /* ECSignalingChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSignalingChannel.m; sourceTree = "<group>"; };
 		78D593591B7C17FF00EDF432 /* ECSignalingMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSignalingMessage.h; sourceTree = "<group>"; };
 		78D5935A1B7C17FF00EDF432 /* ECSignalingMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSignalingMessage.m; sourceTree = "<group>"; };
 		78D5935E1B7C17FF00EDF432 /* RTCIceCandidate+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RTCIceCandidate+JSON.h"; sourceTree = "<group>"; };
@@ -123,6 +141,43 @@
 		78E539CF1B99E4F4004B63EF /* CHANGELOG */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG; sourceTree = "<group>"; };
 		B916C67F7DBD8F27E3B4F7F5 /* Pods-ErizoClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErizoClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ErizoClient/Pods-ErizoClient.debug.xcconfig"; sourceTree = "<group>"; };
 		C46FE2A8E0D86F786A534622 /* Pods-ErizoClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErizoClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-ErizoClient/Pods-ErizoClient.release.xcconfig"; sourceTree = "<group>"; };
+		F373AB7E2463F8D90089E89E /* ECSignalingChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSignalingChannel.m; sourceTree = "<group>"; };
+		F373ABAB24642EB30089E89E /* SocketEnginePollable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketEnginePollable.h; sourceTree = "<group>"; };
+		F373ABAC24642EB30089E89E /* SocketEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketEngine.h; sourceTree = "<group>"; };
+		F373ABAD24642EB30089E89E /* SocketEngineWebsocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketEngineWebsocket.m; sourceTree = "<group>"; };
+		F373ABAE24642EB30089E89E /* SocketParsable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketParsable.h; sourceTree = "<group>"; };
+		F373ABAF24642EB40089E89E /* SocketAnyEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketAnyEvent.h; sourceTree = "<group>"; };
+		F373ABB024642EB40089E89E /* SSLSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLSecurity.h; sourceTree = "<group>"; };
+		F373ABB124642EB40089E89E /* SocketIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOClient.m; sourceTree = "<group>"; };
+		F373ABB224642EB40089E89E /* SocketPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketPacket.h; sourceTree = "<group>"; };
+		F373ABB324642EB40089E89E /* WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocket.h; sourceTree = "<group>"; };
+		F373ABB424642EB40089E89E /* SocketParsable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketParsable.m; sourceTree = "<group>"; };
+		F373ABB524642EB40089E89E /* SocketStringReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketStringReader.h; sourceTree = "<group>"; };
+		F373ABB624642EB40089E89E /* SocketEngineSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketEngineSpec.m; sourceTree = "<group>"; };
+		F373ABB724642EB40089E89E /* SocketEnginePollable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketEnginePollable.m; sourceTree = "<group>"; };
+		F373ABB824642EB40089E89E /* SocketAckEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketAckEmitter.m; sourceTree = "<group>"; };
+		F373ABB924642EB50089E89E /* SocketIOClientSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOClientSpec.h; sourceTree = "<group>"; };
+		F373ABBA24642EB50089E89E /* SocketIOClientOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOClientOption.h; sourceTree = "<group>"; };
+		F373ABBB24642EB50089E89E /* SocketEngineClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketEngineClient.h; sourceTree = "<group>"; };
+		F373ABBC24642EB50089E89E /* SSLSecurity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLSecurity.m; sourceTree = "<group>"; };
+		F373ABBD24642EB50089E89E /* SocketAnyEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketAnyEvent.m; sourceTree = "<group>"; };
+		F373ABBE24642EB50089E89E /* SocketIOClientStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOClientStatus.h; sourceTree = "<group>"; };
+		F373ABBF24642EB50089E89E /* SocketAckEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketAckEmitter.h; sourceTree = "<group>"; };
+		F373ABC024642EB50089E89E /* SocketPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketPacket.m; sourceTree = "<group>"; };
+		F373ABC124642EB60089E89E /* SocketAckManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketAckManager.m; sourceTree = "<group>"; };
+		F373ABC224642EB60089E89E /* SocketEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketEventHandler.h; sourceTree = "<group>"; };
+		F373ABC324642EB60089E89E /* SocketStringReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketStringReader.m; sourceTree = "<group>"; };
+		F373ABC424642EB60089E89E /* SocketTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketTypes.h; sourceTree = "<group>"; };
+		F373ABC524642EB60089E89E /* SocketEngineSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketEngineSpec.h; sourceTree = "<group>"; };
+		F373ABC624642EB60089E89E /* SocketIOClientSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOClientSpec.m; sourceTree = "<group>"; };
+		F373ABC724642EB70089E89E /* SocketEngineWebsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketEngineWebsocket.h; sourceTree = "<group>"; };
+		F373ABC824642EB70089E89E /* SocketEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketEventHandler.m; sourceTree = "<group>"; };
+		F373ABC924642EB70089E89E /* SocketAckManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketAckManager.h; sourceTree = "<group>"; };
+		F373ABCA24642EB70089E89E /* SocketEnginePacketType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketEnginePacketType.h; sourceTree = "<group>"; };
+		F373ABCB24642EB70089E89E /* SocketEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketEngine.m; sourceTree = "<group>"; };
+		F373ABCC24642EB70089E89E /* SocketTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketTypes.m; sourceTree = "<group>"; };
+		F373ABCD24642EB70089E89E /* WebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocket.m; sourceTree = "<group>"; };
+		F373ABCE24642EB70089E89E /* SocketIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOClient.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +195,7 @@
 			files = (
 				7876C1E91ED5F8FB0083F592 /* libicucore.tbd in Frameworks */,
 				7876C1E51ED5F8D90083F592 /* libErizoClient.a in Frameworks */,
+				698AC66B2A494B39BD637C3F /* Pods_ErizoClientTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +266,7 @@
 				78A617441B7D246900982875 /* LICENSE */,
 				78E539CF1B99E4F4004B63EF /* CHANGELOG */,
 				7814A0F51B83F6E600C18A9E /* README.md */,
+				F373AB8724642A0F0089E89E /* SocketIO */,
 				787BB20E1B7EB1BE00237A36 /* Vendor */,
 				7863E3231B7C167500A34C50 /* ErizoClient */,
 				7863E3301B7C167500A34C50 /* ErizoClientTests */,
@@ -257,7 +314,7 @@
 				781DA3FA1E6B1AC7005670A2 /* ECClientState.h */,
 				78D593511B7C17FF00EDF432 /* ECClient+Internal.h */,
 				78D593571B7C17FF00EDF432 /* ECSignalingChannel.h */,
-				78D593581B7C17FF00EDF432 /* ECSignalingChannel.m */,
+				F373AB7E2463F8D90089E89E /* ECSignalingChannel.m */,
 				78D593591B7C17FF00EDF432 /* ECSignalingMessage.h */,
 				78D5935A1B7C17FF00EDF432 /* ECSignalingMessage.m */,
 				78D5935E1B7C17FF00EDF432 /* RTCIceCandidate+JSON.h */,
@@ -291,8 +348,54 @@
 			children = (
 				B916C67F7DBD8F27E3B4F7F5 /* Pods-ErizoClient.debug.xcconfig */,
 				C46FE2A8E0D86F786A534622 /* Pods-ErizoClient.release.xcconfig */,
+				1324870B030D30169B9905A7 /* Pods-ErizoClientTests.debug.xcconfig */,
+				22398A0C2661768BB9503CA5 /* Pods-ErizoClientTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F373AB8724642A0F0089E89E /* SocketIO */ = {
+			isa = PBXGroup;
+			children = (
+				F373ABBB24642EB50089E89E /* SocketEngineClient.h */,
+				F373ABBA24642EB50089E89E /* SocketIOClientOption.h */,
+				F373ABCA24642EB70089E89E /* SocketEnginePacketType.h */,
+				F373ABBE24642EB50089E89E /* SocketIOClientStatus.h */,
+				F373ABCE24642EB70089E89E /* SocketIOClient.h */,
+				F373ABB124642EB40089E89E /* SocketIOClient.m */,
+				F373ABBF24642EB50089E89E /* SocketAckEmitter.h */,
+				F373ABB824642EB40089E89E /* SocketAckEmitter.m */,
+				F373ABC924642EB70089E89E /* SocketAckManager.h */,
+				F373ABC124642EB60089E89E /* SocketAckManager.m */,
+				F373ABAF24642EB40089E89E /* SocketAnyEvent.h */,
+				F373ABBD24642EB50089E89E /* SocketAnyEvent.m */,
+				F373ABAC24642EB30089E89E /* SocketEngine.h */,
+				F373ABCB24642EB70089E89E /* SocketEngine.m */,
+				F373ABAB24642EB30089E89E /* SocketEnginePollable.h */,
+				F373ABB724642EB40089E89E /* SocketEnginePollable.m */,
+				F373ABC524642EB60089E89E /* SocketEngineSpec.h */,
+				F373ABB624642EB40089E89E /* SocketEngineSpec.m */,
+				F373ABC724642EB70089E89E /* SocketEngineWebsocket.h */,
+				F373ABAD24642EB30089E89E /* SocketEngineWebsocket.m */,
+				F373ABC224642EB60089E89E /* SocketEventHandler.h */,
+				F373ABC824642EB70089E89E /* SocketEventHandler.m */,
+				F373ABB924642EB50089E89E /* SocketIOClientSpec.h */,
+				F373ABC624642EB60089E89E /* SocketIOClientSpec.m */,
+				F373ABB224642EB40089E89E /* SocketPacket.h */,
+				F373ABC024642EB50089E89E /* SocketPacket.m */,
+				F373ABAE24642EB30089E89E /* SocketParsable.h */,
+				F373ABB424642EB40089E89E /* SocketParsable.m */,
+				F373ABB524642EB40089E89E /* SocketStringReader.h */,
+				F373ABC324642EB60089E89E /* SocketStringReader.m */,
+				F373ABC424642EB60089E89E /* SocketTypes.h */,
+				F373ABCC24642EB70089E89E /* SocketTypes.m */,
+				F373ABB024642EB40089E89E /* SSLSecurity.h */,
+				F373ABBC24642EB50089E89E /* SSLSecurity.m */,
+				F373ABB324642EB40089E89E /* WebSocket.h */,
+				F373ABCD24642EB70089E89E /* WebSocket.m */,
+			);
+			name = SocketIO;
+			path = ErizoClient/SocketIO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,7 +409,6 @@
 				7863E31D1B7C167400A34C50 /* Sources */,
 				7863E31E1B7C167400A34C50 /* Frameworks */,
 				7863E31F1B7C167400A34C50 /* CopyFiles */,
-				93A3E8E095EB8778BDE0AD8B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -321,9 +423,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7863E3381B7C167500A34C50 /* Build configuration list for PBXNativeTarget "ErizoClientTests" */;
 			buildPhases = (
+				AB8B8605491E7D9FCC9B8F96 /* [CP] Check Pods Manifest.lock */,
 				7863E3281B7C167500A34C50 /* Sources */,
 				7863E3291B7C167500A34C50 /* Frameworks */,
 				7863E32A1B7C167500A34C50 /* Resources */,
+				5916B2250CF7CDD4461A630F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -360,6 +464,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 786C894F1B7C10D800527918;
@@ -385,6 +490,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5916B2250CF7CDD4461A630F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ErizoClientTests/Pods-ErizoClientTests-frameworks.sh",
+				"${PODS_ROOT}/PodRTC/WebRTC.framework",
+				"${BUILT_PRODUCTS_DIR}/OCHamcrest/OCHamcrest.framework",
+				"${BUILT_PRODUCTS_DIR}/OCMockito/OCMockito.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OCHamcrest.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OCMockito.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ErizoClientTests/Pods-ErizoClientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7875E1601B7EE4F900BEE085 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -411,21 +538,6 @@
 			shellPath = /bin/sh;
 			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"Alvaro Gil (@zevarito)\";\ncompanyID=\"@zevarito\";\ncompanyURL=\"https://github.com/zevarito\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"~/help\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME} Developers Documentation\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--output \"${PROJECT_DIR}/docs/dev\" \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--search-undocumented-doc \\\n\"${PROJECT_DIR}/ErizoClient\"\n";
 		};
-		93A3E8E095EB8778BDE0AD8B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../../rhinobird/IOSApp/Pods/Target Support Files/Pods-ErizoClient/Pods-ErizoClient-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9BDAA9D31C9628C7C7F3C596 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -444,6 +556,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AB8B8605491E7D9FCC9B8F96 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ErizoClientTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -451,18 +585,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F373AB7F2463F8D90089E89E /* ECSignalingChannel.m in Sources */,
+				F373ABD824642EB70089E89E /* SocketAckManager.m in Sources */,
+				F373ABDD24642EB70089E89E /* SocketTypes.m in Sources */,
+				F373ABDA24642EB70089E89E /* SocketIOClientSpec.m in Sources */,
 				7875E15E1B7ED6CE00BEE085 /* ErizoClient.m in Sources */,
+				F373ABDB24642EB70089E89E /* SocketEventHandler.m in Sources */,
+				F373ABD724642EB70089E89E /* SocketPacket.m in Sources */,
 				785C801B1B9DE13300DD721F /* ECPlayerView.m in Sources */,
 				78D593761B7C17FF00EDF432 /* ECStream.m in Sources */,
 				78D5936F1B7C17FF00EDF432 /* ECSignalingMessage.m in Sources */,
+				F373ABD424642EB70089E89E /* SocketAckEmitter.m in Sources */,
 				78D593711B7C17FF00EDF432 /* RTCIceCandidate+JSON.m in Sources */,
+				F373ABD624642EB70089E89E /* SocketAnyEvent.m in Sources */,
+				F373ABD224642EB70089E89E /* SocketEngineSpec.m in Sources */,
 				78D593721B7C17FF00EDF432 /* RTCIceServer+JSON.m in Sources */,
 				78D593731B7C17FF00EDF432 /* RTCSessionDescription+JSON.m in Sources */,
+				F373ABD124642EB70089E89E /* SocketParsable.m in Sources */,
+				F373ABCF24642EB70089E89E /* SocketEngineWebsocket.m in Sources */,
 				78D5936C1B7C17FF00EDF432 /* ECClient.m in Sources */,
-				78D5936E1B7C17FF00EDF432 /* ECSignalingChannel.m in Sources */,
+				F373ABD024642EB70089E89E /* SocketIOClient.m in Sources */,
 				78D593741B7C17FF00EDF432 /* SDPUtils.m in Sources */,
+				F373ABD324642EB70089E89E /* SocketEnginePollable.m in Sources */,
 				788223D31B7E98BF00A7C1B8 /* Utilities.m in Sources */,
+				F373ABDE24642EB70089E89E /* WebSocket.m in Sources */,
+				F373ABDC24642EB70089E89E /* SocketEngine.m in Sources */,
 				78353EDD1ECE4D4E00EAD85E /* ECSignalingEvent.m in Sources */,
+				F373ABD524642EB70089E89E /* SSLSecurity.m in Sources */,
+				F373ABD924642EB70089E89E /* SocketStringReader.m in Sources */,
 				78D593771B7C17FF00EDF432 /* ECRoom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -608,6 +758,7 @@
 		};
 		7863E3351B7C167500A34C50 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1324870B030D30169B9905A7 /* Pods-ErizoClientTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -665,6 +816,7 @@
 		};
 		7863E3361B7C167500A34C50 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22398A0C2661768BB9503CA5 /* Pods-ErizoClientTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;

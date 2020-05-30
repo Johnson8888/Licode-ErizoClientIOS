@@ -10,7 +10,7 @@
 #import "ECSignalingMessage.h"
 #import "RTCIceCandidate+JSON.h"
 #import "RTCSessionDescription+JSON.h"
-#import "Utilities.h"
+//#import "Utilities.h"
 
 static NSString const *kECSignalingMessageTypeKey = @"type";
 static NSString const *kECSignalingMessageAgentIdKey = @"agentId";
@@ -48,27 +48,6 @@ static NSString const *kECSignalingMessageAgentIdKey = @"agentId";
     return self;
 }
 
-- (instancetype)initWithType:(ECSignalingMessageType)type
-					streamId:(NSString *)streamId
-					 erizoId:(NSString *)erizoId
-				connectionId:(NSString *)connectionId
-				peerSocketId:(NSString *)peerSocketId {
-	if (self = [super init]) {
-		if ([streamId isKindOfClass:[NSNumber class]]) {
-			_streamId = [(NSNumber*)streamId stringValue];
-		} else if ([streamId isKindOfClass:[NSString class]]) {
-			_streamId = streamId;
-		} else {
-			//NSAssert(true, @"streamId is not a string!");
-		}
-		_erizoId = erizoId;
-		_connectionId = connectionId;
-		_peerSocketId = peerSocketId;
-		_type = type;
-	}
-	return self;
-}
-
 - (NSString *)description {
     return [[NSString alloc] initWithData:[self JSONData]
                                  encoding:NSUTF8StringEncoding];
@@ -83,15 +62,10 @@ static NSString const *kECSignalingMessageAgentIdKey = @"agentId";
     NSString *typeString;
     NSString *streamId;
     NSString *peerSocketId;
-	NSString *connectionId;
-	NSString *erizoId;
 
     values = [messageDict objectForKey:@"mess"];
     if (!values) {
         values = [messageDict objectForKey:@"msg"];
-		if (!values) {
-			values = [messageDict objectForKey:@"evt"];
-		}
     }
     if (!values) {
         NSAssert(false, @"ECSignalingMessage:messageFromDictionary unable to parse messageDict");
@@ -112,20 +86,12 @@ static NSString const *kECSignalingMessageAgentIdKey = @"agentId";
     if ([messageDict objectForKey:@"peerSocket"]) {
         peerSocketId = [NSString stringWithFormat:@"%@", [messageDict objectForKey:@"peerSocket"]];
     }
-	if ([messageDict objectForKey:@"connectionId"]) {
-		connectionId = [NSString stringWithFormat:@"%@", [messageDict objectForKey:@"connectionId"]];
-	}
-	if ([messageDict objectForKey:@"erizoId"]) {
-		erizoId = [NSString stringWithFormat:@"%@", [messageDict objectForKey:@"erizoId"]];
-	}
 
     if ([typeString isEqualToString:@"candidate"]) {
 
         RTCIceCandidate *candidate = [RTCIceCandidate candidateFromJSONDictionary:values];
         message = [[ECICECandidateMessage alloc] initWithCandidate:candidate
                                                           streamId:streamId
-														   erizoId:erizoId
-													  connectionId:connectionId
                                                       peerSocketId:peerSocketId];
 
     } else if ([typeString isEqualToString:@"offer"] ||
@@ -134,8 +100,6 @@ static NSString const *kECSignalingMessageAgentIdKey = @"agentId";
         RTCSessionDescription *description = [RTCSessionDescription descriptionFromJSONDictionary:values];
         message = [[ECSessionDescriptionMessage alloc] initWithDescription:description
                                                                   streamId:streamId
-																   erizoId:erizoId
-															  connectionId:connectionId
                                                               peerSocketId:peerSocketId];
 
     } else if ([typeString isEqualToString:@"bye"]) {
@@ -144,7 +108,6 @@ static NSString const *kECSignalingMessageAgentIdKey = @"agentId";
 
     } else if ([typeString isEqualToString:@"ready"]) {
         message = [[ECReadyMessage alloc] initWithStreamId:streamId
-				   							  connectionId:connectionId
                                               peerSocketId:peerSocketId];
 	} else if ([typeString isEqualToString:@"timeout"]) {
         message = [[ECTimeoutMessage alloc] initWithStreamId:streamId
@@ -152,7 +115,6 @@ static NSString const *kECSignalingMessageAgentIdKey = @"agentId";
 	
 	} else if ([typeString isEqualToString:@"failed"]) {
         message = [[ECFailedMessage alloc] initWithStreamId:streamId
-											   connectionId:connectionId
                                                peerSocketId:peerSocketId];
 		
 	} else if ([typeString isEqualToString:@"started"]) {
@@ -167,10 +129,6 @@ static NSString const *kECSignalingMessageAgentIdKey = @"agentId";
         NSString *agentId = values[kECSignalingMessageAgentIdKey];
         message = [[ECInitializingMessage alloc] initWithStreamId:streamId
                                                           agentId:agentId];
-	} else if ([typeString isEqualToString:@"quality_level"]) {
-		message = [[ECQualityLevelMessage alloc] initWithStreamId:streamId
-				   							         connectionId:connectionId
-													   peerSocketId:peerSocketId];
 	} else {
         L_WARNING(@"Unexpected type: %@", typeString);
     }
@@ -189,14 +147,10 @@ static NSString const *kECSignalingMessageAgentIdKey = @"agentId";
 
 - (instancetype)initWithCandidate:(RTCIceCandidate *)candidate
                       streamId:(NSString *)streamId
-					   erizoId:erizoId
-				  connectionId:connectionId
                      peerSocketId:(NSString *)peerSocketId {
-    //NSAssert(streamId, @"ECICECandidateMessage initWithCandidate:streamId:peerSocketId: missing streamId");
+    NSAssert(streamId, @"ECICECandidateMessage initWithCandidate:streamId:peerSocketId: missing streamId");
     if (self = [super initWithType:kECSignalingMessageTypeCandidate
                           streamId:streamId
-						   erizoId:erizoId
-					  connectionId:connectionId
                       peerSocketId:peerSocketId]) {
         _candidate = candidate;
     }
@@ -215,12 +169,8 @@ static NSString const *kECSignalingMessageAgentIdKey = @"agentId";
 
 - (instancetype)initWithDescription:(RTCSessionDescription *)description
                            streamId:(NSString *)streamId
-							erizoId:(NSString *)erizoId
-					   connectionId:(NSString *)connectionId
                        peerSocketId:(NSString *)peerSocketId {
-    //NSAssert(streamId, @"ECSessionDescriptionMessage initWithDescription missing streamId");
-	//NSAssert(erizoId, @"ECSessionDescriptionMessage initWithDescription missing erizoId");
-	NSAssert(connectionId, @"ECSessionDescriptionMessage initWithDescription missing connectionId");
+    NSAssert(streamId, @"ECSessionDescriptionMessage initWithDescription missing streamId");
     ECSignalingMessageType type = kECSignalingMessageTypeOffer;
     
     if (description.type == RTCSdpTypeOffer) {
@@ -231,10 +181,8 @@ static NSString const *kECSignalingMessageAgentIdKey = @"agentId";
         NSAssert(NO, @"Unexpected sdp type: %ld", (long)description.type);
     }
     
-	if (self = [super initWithType:type streamId:streamId erizoId:erizoId connectionId:connectionId peerSocketId:peerSocketId]) {
+    if (self = [super initWithType:type streamId:streamId peerSocketId:peerSocketId]) {
         _sessionDescription = description;
-		self.erizoId = erizoId;
-		self.connectionId = connectionId;
     }
     return self;
 }
@@ -271,11 +219,9 @@ static NSString const *kECSignalingMessageAgentIdKey = @"agentId";
 
 @implementation ECReadyMessage
 
-- (instancetype)initWithStreamId:(id)streamId connectionId:(NSString *) connectionId peerSocketId:(NSString *)peerSocketId {
+- (instancetype)initWithStreamId:(id)streamId peerSocketId:(NSString *)peerSocketId {
     if (self = [super initWithType:kECSignalingMessageTypeReady
                           streamId:streamId
-						   erizoId:nil
-					  connectionId:connectionId
                       peerSocketId:peerSocketId]) {
     }
     return self;
@@ -315,11 +261,9 @@ static NSString const *kECSignalingMessageAgentIdKey = @"agentId";
 
 @implementation ECFailedMessage
 
-- (instancetype)initWithStreamId:(id)streamId connectionId:(NSString *)connectionId peerSocketId:(NSString *)peerSocketId {
+- (instancetype)initWithStreamId:(id)streamId peerSocketId:(NSString *)peerSocketId {
     if (self = [super initWithType:kECSignalingMessageTypeFailed
                           streamId:(NSString *)streamId
-						   erizoId:nil
-					  connectionId:connectionId
                       peerSocketId:(NSString *)peerSocketId]) {
 	}
 	return self;
@@ -370,29 +314,6 @@ static NSString const *kECSignalingMessageAgentIdKey = @"agentId";
 - (NSData *)JSONData {
 	NSDictionary *message = @{
 							  @"type": @"bandwidthAlert"
-							  };
-	return [NSJSONSerialization dataWithJSONObject:message
-										   options:NSJSONWritingPrettyPrinted
-											 error:NULL];
-}
-
-@end
-
-@implementation ECQualityLevelMessage
-
-- (instancetype)initWithStreamId:(id)streamId connectionId:(NSString *)connectionId peerSocketId:(NSString *)peerSocketId {
-	if (self = [super initWithType:kECSignalingMessageTypeQualityLevel
-						  streamId:streamId
-						   erizoId:nil
-					  connectionId:connectionId
-					  peerSocketId:peerSocketId]) {
-	}
-	return self;
-}
-
-- (NSData *)JSONData {
-	NSDictionary *message = @{
-							  @"type": @"quality_level"
 							  };
 	return [NSJSONSerialization dataWithJSONObject:message
 										   options:NSJSONWritingPrettyPrinted

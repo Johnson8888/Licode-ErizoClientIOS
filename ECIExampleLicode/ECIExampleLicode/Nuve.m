@@ -10,11 +10,21 @@
 #include <stdlib.h>
 #include <CommonCrypto/CommonHMAC.h>
 
-static NSString *kNuveHost          = @"http://192.168.0.101:3000";
-static NSString *kNuveServiceId     = @"58e27e2447e5cca9c7e9637a";
-static NSString *kNuveServiceKey    = @"17851";
+static NSString *kNuveHost          = @"http://192.168.11.153:3000";
+
+static NSString *kNuveServiceId     = @"5eb3611e2bdc2948c352a5d5";
+static NSString *kNuveServiceKey    = @"6186";
+
+
+
+//static NSString *kNuveHost          = @"http://192.168.100.186:3000";
+//static NSString *kNuveServiceId     = @"5eb2530011b2aac43ef3127b";
+//static NSString *kNuveServiceKey    = @"32290";
 
 @implementation Nuve
+
+/// 获取一个 Nuve实例
+
 
 + (instancetype)sharedInstance {
     static dispatch_once_t once;
@@ -27,6 +37,9 @@ static NSString *kNuveServiceKey    = @"17851";
     });
     return sharedInstance;
 }
+
+/// 获取当前房间列表
+/// @param completion 回去成功后的回调
 
 - (void)listRoomsWithCompletion:(NuveListRoomsCallback)completion {
     NSString *endpoint = @"/rooms";
@@ -42,6 +55,12 @@ static NSString *kNuveServiceKey    = @"17851";
                   }
               }];
 }
+
+/// 创建一个房间
+/// @param roomName 房间名字
+/// @param roomType 房间类型
+/// @param options 配置参数
+/// @param completion 创建成功后的回调
 
 - (void)createRoom:(NSString *)roomName
           roomType:(RoomType)roomType
@@ -73,6 +92,11 @@ static NSString *kNuveServiceKey    = @"17851";
     }];
 }
 
+/// 由房间Id生成Token
+/// @param roomId 房间Id
+/// @param username 用户名字
+/// @param role 角色
+/// @param completion 创建成功后的回调
 - (void)createTokenForRoomId:(NSString *)roomId
                     username:(NSString *)username
                         role:(NSString *)role
@@ -84,7 +108,10 @@ static NSString *kNuveServiceKey    = @"17851";
     NSString *endpoint = [NSString stringWithFormat:@"/rooms/%@/tokens", roomId];
     NSString *authorizationHeader = [self authorizationHeaderForUserName:username
                                                                 role:role];
-    [self performRequest:endpoint method:@"POST" postData:nil authorization:authorizationHeader
+    [self performRequest:endpoint
+                  method:@"POST"
+                postData:nil
+           authorization:authorizationHeader
               completion:^(BOOL success, id data) {
         if (success) {
             completion(YES, data);
@@ -94,6 +121,13 @@ static NSString *kNuveServiceKey    = @"17851";
     }];
 }
 
+
+/// 由roomName创建Token
+/// @param roomName 房间名字
+/// @param roomType 房间类型
+/// @param username 用户名自
+/// @param create 如果不存在该房间是否创建房间
+/// @param completion 创建成功后的回调
 - (void)createTokenForTheFirstAvailableRoom:(NSString *)roomName
                                    roomType:(RoomType)roomType
                                    username:(NSString *)username
@@ -128,6 +162,13 @@ static NSString *kNuveServiceKey    = @"17851";
     }];
 }
 
+
+
+/// 创建房间和Token
+/// @param roomName 房间名字
+/// @param roomType 房间类型
+/// @param username 用户名自
+/// @param completion 完成后的回调
 - (void)createRoomAndCreateToken:(NSString *)roomName
                         roomType:(RoomType)roomType
                         username:(NSString *)username
@@ -170,12 +211,13 @@ static NSString *kNuveServiceKey    = @"17851";
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithRequest:request
                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                    if (!error && httpResponse.statusCode >= 200 && httpResponse.statusCode <= 400) {
-                        completion(YES, [self parseResponse:data]);
-                    } else {
-                        completion(NO, [self parseResponse:data]);
-                    }
+        NSLog(@"data == %@ response = %@ error = %@",data,response,error);
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+        if (!error && httpResponse.statusCode >= 200 && httpResponse.statusCode <= 400) {
+            completion(YES, [self parseResponse:data]);
+        } else {
+            completion(NO, [self parseResponse:data]);
+        }
     }] resume];
 }
 
@@ -186,6 +228,7 @@ static NSString *kNuveServiceKey    = @"17851";
     NSString *firstCharacter = [parsedData substringWithRange:NSMakeRange(0, 1)];
     if ([firstCharacter isEqualToString:@"{"] || [firstCharacter isEqualToString:@"["]) {
         NSData *jsonData = [parsedData dataUsingEncoding:NSUnicodeStringEncoding];
+        NSLog(@"jsonData == %@",jsonData);
         NSError *error;
         if (!error) {
             return [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];

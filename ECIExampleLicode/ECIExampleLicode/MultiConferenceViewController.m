@@ -8,13 +8,17 @@
 
 #import "MultiConferenceViewController.h"
 #import "ECRoom.h"
+#import "Nuve.h"
 #import "ECStream.h"
 #import "ECPlayerView.h"
-#import "LicodeServer.h"
-#import "Nuve.h"
 #import "ErizoClient.h"
+#import "LicodeServer.h"
 
-static NSString *roomId = @"59de889a35189661b58017a1";
+
+//static NSString *roomId = @"5eb373c11abfe30206310143";
+// 5eb2530f72cefa020ae9c9c4
+
+static NSString *roomId = @"5eb3612d76c07701f4c63405";
 static NSString *roomName = @"IOS Demo APP";
 static NSString *kDefaultUserName = @"ErizoIOS";
 
@@ -90,7 +94,7 @@ static CGFloat vHeight = 120.0;
 						   @"type": @"public",
 						   };
     [localStream setAttributes:attributes];
-	//[localStream setSignalingChannel:remoteRoom.signalingChannel];
+	[localStream setSignalingChannel:remoteRoom.signalingChannel];
 	
 	// We get connected and ready to publish, so publish.
     [remoteRoom publish:localStream];
@@ -237,17 +241,25 @@ static CGFloat vHeight = 120.0;
 
     Method 2.2: Create a token for a given room id.
     */
+    
+    
+//    NSString *responseToken = @"eyJ0b2tlbklkIjoiNWViNjBmNmJmM2E4MGMwMjA1ZDQzZjMxIiwiaG9zdCI6IjE5Mi4xNjguMTAwLjE4ODo4MDgwIiwic2VjdXJlIjpmYWxzZSwic2lnbmF0dXJlIjoiTWpWaE9HUTJaR1ZpWmpRMlpqQTVabVUyT1RJMVpHSmxNVEkyWTJZNVlUaG1NalJrT1RnNE1BPT0ifQ==";
+//    [remoteRoom connectWithEncodedToken:responseToken];
+
+    
     [[Nuve sharedInstance] createTokenForRoomId:roomId
                                        username:username
                                            role:kLicodePresenterRole
                                      completion:^(BOOL success, NSString *token) {
-                                         if (success) {
-                                            [remoteRoom connectWithEncodedToken:token];
-                                         } else {
-                                             [self showCallConnectViews:YES
-                                                    updateStatusMessage:@"Error!"];
-                                         }
-                                     }];
+        NSLog(@"token == %@",token);
+        if (success) {
+            [remoteRoom connectWithEncodedToken:token];
+        } else {
+            [self showCallConnectViews:YES updateStatusMessage:@"Error!"];
+        }
+    }];
+    
+    
     /*
     Method 2.3: Create a Room and then create a Token.
 
@@ -266,14 +278,23 @@ static CGFloat vHeight = 120.0;
 
 }
 
+
+
 - (IBAction)leave:(id)sender {
+    
+    NSLog(@"leave action");
+    
+    /// 开始移除 拉流的 View
     for (ECStream *stream in remoteRoom.remoteStreams) {
         [self removeStream:stream.streamId];
     }
+    
     [remoteRoom leave];
     remoteRoom = nil;
     [self showCallConnectViews:YES updateStatusMessage:@"Ready"];
 }
+
+
 
 - (IBAction)unpublish:(id)sender {
     if (localStream) {
@@ -400,5 +421,6 @@ static CGFloat vHeight = 120.0;
         self.unpublishButton.hidden = show;
 	});
 }
+
 
 @end

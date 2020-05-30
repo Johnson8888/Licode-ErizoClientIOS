@@ -10,8 +10,13 @@
 
 @interface LicodeServer : NSObject
 
+
+/// 获取一个 LicodeServer 实例
 + (instancetype)sharedInstance;
 
+/// 获取多人视频会话协议
+/// @param username 用户名
+/// @param completion 获取后的回调
 - (void)obtainMultiVideoConferenceToken:(NSString *)username
                              completion:(void(^)(BOOL result, NSString *token))completion;
 

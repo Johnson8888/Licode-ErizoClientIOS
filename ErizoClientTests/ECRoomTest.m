@@ -9,6 +9,9 @@
 #import "ECUnitTest.h"
 #import "ECRoom.h"
 #import "ECClient.h"
+#import "ECSignalingChannel.h"
+
+
 @import WebRTC;
 
 @interface ECRoomTest : ECUnitTest

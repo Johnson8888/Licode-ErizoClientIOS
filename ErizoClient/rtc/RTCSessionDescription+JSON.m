@@ -26,8 +26,7 @@ static NSString const *kRTCSessionDescriptionSdpKey = @"sdp";
     NSString *type = [RTCSessionDescription stringForType:self.type];
     NSDictionary *json = @{
                            kRTCSessionDescriptionTypeKey : type,
-                           kRTCSessionDescriptionSdpKey : self.sdp,
-						   @"config": @{@"maxVideoBW": [NSNumber numberWithInteger:1024]}
+                           kRTCSessionDescriptionSdpKey : self.sdp
                            };
     return [NSJSONSerialization dataWithJSONObject:json options:0 error:nil];
 }

@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 @import WebRTC;
-#import "ECClient.h"
-#import "ECRoom.h"
+//#import "ECClient.h"
+//#import "ECRoom.h"
 
 @class ECRoom;
+@class ECClient;
 
 /**
  ECRoomStatsDelegate

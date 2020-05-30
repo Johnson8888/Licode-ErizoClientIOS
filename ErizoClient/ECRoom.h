@@ -8,13 +8,15 @@
 
 @import WebRTC;
 #import <Foundation/Foundation.h>
-#import "ECClient.h"
-#import "ECSignalingChannel.h"
-#import "ECStream.h"
 #import "ECRoomStatsProtocol.h"
+//#import "ECClient.h"
+//#import "ECStream.h"
 
 @class ECRoom;
 @class Client;
+@class ECClient;
+@class ECStream;
+@class ECSignalingChannel;
 
 /**
  @enum ECRoomStatus
@@ -222,7 +224,7 @@ typedef NS_ENUM(NSInteger, ECRoomErrorStatus) {
 /*
  Interface responsable of publshing/consuming streams in a given ECRoom.
  */
-@interface ECRoom : NSObject <ECSignalingChannelRoomDelegate, ECClientDelegate>
+@interface ECRoom : NSObject
 
 ///-----------------------------------
 /// @name Initializers

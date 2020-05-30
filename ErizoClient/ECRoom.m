@@ -19,6 +19,11 @@ static NSString * const kRTCStatsBytesSent       = @"bytesSent";
 static NSString * const kRTCStatsLastDate        = @"lastDate";
 static NSString * const kRTCStatsMediaTypeKey    = @"mediaType";
 
+
+@interface ECRoom()<ECSignalingChannelRoomDelegate, ECClientDelegate>
+
+@end
+
 @implementation ECRoom {
     ECClient *publishClient;
     NSMutableDictionary *p2pClients;
@@ -141,6 +146,9 @@ static NSString * const kRTCStatsMediaTypeKey    = @"mediaType";
 }
 
 - (void)leave {
+    
+    NSLog(@"ECRoomStatus === %ld",(long)_status);
+    
     if (_status == ECRoomStatusConnected) {
         [_signalingChannel disconnect];
     } else {
